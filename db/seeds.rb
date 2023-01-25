@@ -11,7 +11,14 @@ Dev.create(name: "Mr. Meseeks")
 Dev.create(name: "Gazorpazop")
 
 puts "Creating freebies..."
-
+25.times do 
+    Freebie.create(
+        item_name: Faker::Food.dish,
+        value: rand(1..10),
+        dev_id: Dev.all.sample.id,
+        company_id: Company.all.sample.id
+    )
+end
 # ***************************************************************
 # * TODO: create freebies! Remember, a freebie belongs to a dev *
 # * and a freebie belongs to a company.                         *
